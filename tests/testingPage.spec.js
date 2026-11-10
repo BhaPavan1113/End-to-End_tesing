@@ -13,11 +13,11 @@ test("Web application", async({page})=>{
   const pom = new POManagerPage(page);
   const login = await pom.getLoginPage();
     await login.goto();
-    const email= await faker.internet.email();
-    const password= await faker.internet.password();
-    console.log(email);
-    console.log(password);
-    await login.loginUser(email, password);
+  //   const email= await faker.internet.email();
+  //   const password= await faker.internet.password();
+  //   console.log(email);
+  //   console.log(password);
+    await login.loginUser(process.env.email, process.env.password);
 
     //Add event
     const events = await pom.getEventsPage();
